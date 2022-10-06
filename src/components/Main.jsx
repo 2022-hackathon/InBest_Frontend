@@ -13,48 +13,30 @@ export default function Main() {
         </Text>
       </Banner>
       <Section>
-        <Title>
-          <h2>현재 인기 종목</h2>
-          <p>00기준을 통해 선정함</p>
-          <button>새로고침</button>
-        </Title>
+        <Popular>
+          <Title>
+            <h3>현재 인기 종목</h3>
+            <p>(거래량 순위)</p>
+            <button>갱신</button>
+          </Title>
+          <Div></Div>
+        </Popular>
+        <Large>
+          <Title>
+            <h3>대규모 종목</h3>
+            <p>(거래량 순위)</p>
+            <button>갱신</button>
+          </Title>
+          <Div></Div>
+        </Large>
+        <Chart>
+          <Title>
+            <h3>대규모 종목</h3>
+            <p>(거래량 순위)</p>
+            <button>갱신</button>
+          </Title>
+        </Chart>
       </Section>
-      <StyledHome>
-        <DesContainer>
-          <div>종목명</div>
-          <div>현재가</div>
-          <div>시가총액</div>
-          <div>거래량/거래대금</div>
-        </DesContainer>
-        <ListContainer>
-          <List>
-            <div>
-              <ListItem>테스트</ListItem>
-              <ListItem margin="120px">테스트</ListItem>
-              <ListItem margin="125px">테스트</ListItem>
-              <ListItem margin="160px">테스트</ListItem>
-            </div>
-            <div>
-              <ListItem>테스트</ListItem>
-              <ListItem margin="120px">테스트</ListItem>
-              <ListItem margin="125px">테스트</ListItem>
-              <ListItem margin="160px">테스트</ListItem>
-            </div>
-            <div>
-              <ListItem>테스트</ListItem>
-              <ListItem margin="120px">테스트</ListItem>
-              <ListItem margin="125px">테스트</ListItem>
-              <ListItem margin="160px">테스트</ListItem>
-            </div>
-            <div>
-              <ListItem>테스트</ListItem>
-              <ListItem margin="120px">테스트</ListItem>
-              <ListItem margin="125px">테스트</ListItem>
-              <ListItem margin="160px">테스트</ListItem>
-            </div>
-          </List>
-        </ListContainer>
-      </StyledHome>
     </Container>
   );
 }
@@ -93,6 +75,8 @@ const Text = styled.div`
 `;
 
 const Section = styled.div`
+  width: 100%;
+  margin-top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,70 +84,53 @@ const Section = styled.div`
 `;
 
 const Title = styled.div`
-  width: 80%;
-  margin-top: 100px;
-  text-align: start;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  h2 {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  h3 {
     margin: 0 0;
-    font-size: 34px;
+    font-size: 28px;
   }
   p {
-    margin: 10px 0 0 0;
-    font-size: 14px;
-    font-style: 600;
+    margin: 0 0;
+    font-size: 16px;
+    font-size: 800;
   }
   button {
-    width: 120px;
-    height: 40px;
-
-    margin-top: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 90px;
+    height: 36px;
     border-radius: 20px;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 800;
     color: #fff;
-    background: #4263eb;
+    background: #5c7cfa;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
   }
 `;
 
-const ListItem = styled.p`
-  width: 240px;
-  text-align: center;
-  margin-left: ${(props) => props.margin || "0px"};
+const Div = styled.div`
+  width: 100%;
+  height: 400px;
+  border: solid 2px #5c7cfa;
+  border-radius: 10px;
+  background: #fff;
 `;
-const StyledHome = styled.div`
+const Popular = styled.div`
+  width: 80%;
+`;
+
+const Large = styled.div`
+  width: 80%;
   margin-top: 100px;
 `;
-const DesContainer = styled.div`
-  display: flex;
-  margin-left: 20px;
-  margin-top: 30px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  div {
-    height: auto;
-    line-height: 50px;
-  }
-`;
-const List = styled.div`
-  width: 90%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  border: black 1px solid;
-`;
-const ListContainer = styled.div`
-  bottom: 30px;
-  display: flex;
-  justify-content: center;
-  div {
-    display: flex;
-    border-bottom: 1px solid;
-  }
+
+const Chart = styled.div`
+  width: 80%;
+  margin-top: 100px;
 `;

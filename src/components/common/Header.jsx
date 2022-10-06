@@ -28,7 +28,7 @@ const Container = styled.div`
   z-index: 100;
   top: 0px;
   position: fixed;
-  width: 100vw;
+  width: 100%;
   height: 70px;
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 80vw;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,6 +48,7 @@ const Wrapper = styled.div`
   }
   h2 {
     color: #fff;
+    cursor: pointer;
   }
 
   button {
@@ -64,7 +65,7 @@ const Wrapper = styled.div`
   }
 `;
 const Frame = styled.div`
-  width: 30vw;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -72,5 +73,6 @@ const Frame = styled.div`
     font-size: 16px;
     font-weight: 800;
     color: #fff;
+    cursor: pointer;
   }
 `;

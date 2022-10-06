@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import background from "../assets/img/SginUp/background.svg";
+import background from "../assets/img/background.svg";
 
 export default function SignUpItem({ account, onChangeAccount, onAxios }) {
   return (

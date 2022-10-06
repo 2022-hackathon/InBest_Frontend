@@ -8,7 +8,7 @@ export default function Modal() {
   const [modal, setModal] = useRecoilState(modalState);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-
+  document.body.style.overflow = "hidden";
   function onSub(e) {
     e.preventDefault();
     const form = {
@@ -49,7 +49,7 @@ export default function Modal() {
               onChange={(e) => setTitle(e.target.value)}
             />
             <textarea
-              rows="18"
+              rows="10"
               cols="25"
               placeholder="내용을 입력해주세요"
               onChange={(e) => setContent(e.target.value)}
@@ -62,19 +62,16 @@ export default function Modal() {
   );
 }
 const StyledModal = styled.div`
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  margin-top: 90px;
+  top: 190px;
   position: absolute;
   z-index: 2;
+  background-color : #ede4cc;
 `;
 
 const Popup = styled.div`
-  width: 800px;
-  height: 550px;
-  box-shadow: 2px 2px #979797;
-  border: 1px solid;
+  width: 700px;
+  height: 450px;
+  box-shadow: 1px 1px 2px 2px #979797;
   border-radius: 20px;
   .head {
     width: 100%;
@@ -85,7 +82,7 @@ const Popup = styled.div`
     box-shadow: 0px 2px #979797;
   }
   .head button {
-    margin-left: 700px;
+    margin-left: 600px;
     border-radius: 99999px;
     width: 40px;
     height: 40px;
@@ -115,8 +112,8 @@ const Popup = styled.div`
     border-radius: 10px;
     border: 1px solid;
     margin-top: 30px;
-    width: 700px;
-    height: 50px;
+    width: 600px;
+    height: 40px;
   }
   textarea {
     padding-top: 20px;
@@ -124,7 +121,7 @@ const Popup = styled.div`
     margin-top: 30px;
     border-radius: 10px;
     border: 1px solid;
-    width: 690px;
+    width: 590px;
   }
   .sub {
     margin-top: 25px;

@@ -4,14 +4,15 @@ import MyPage from "./page/MyPage";
 import SignUpPage from "./page/SignUpPage";
 import LoginPage from "./page/LoginPage";
 import CategoryPage from "./page/CategoryPage";
-import Game from "./sfdgs4/Game";
 import Header from "./components/common/Header";
+import Game from "./page/Game";
+import IntroPage from "./page/IntroPage";
 export default function App() {
   return (
     <>
-      <Header />
+      {localStorage.getItem("token") === null ? null : <Header/>}
       <Routes>
-        <Route path="/" element={<Main />}></Route>
+        <Route path="/" element={<IntroPage />}></Route>
         <Route path="/mypage" element={<CategoryPage />}></Route>
         <Route path="/signup" element={<SignUpPage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>

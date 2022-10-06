@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
 import background from "../assets/img/signUp/background.svg";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export default function SignUp({ account, onChangeAccount, onAxios }) {
   return (
     <Container>
       <Wrapper>
+        <Link to="/">
+          <h3>LOGO</h3>
+        </Link>
         <Route>
           <Link to="/login">
             <span>로그인</span>
@@ -63,14 +66,17 @@ export default function SignUp({ account, onChangeAccount, onAxios }) {
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #bac8ff;
   background-image: url(${background});
-  a{
-    text-decoration : none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  a {
+    text-decoration: none;
   }
 `;
 
@@ -84,6 +90,12 @@ const Wrapper = styled.div`
   justify-content: center;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   background: #fff;
+  h3 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin: 0 0;
+  }
 `;
 
 const Route = styled.div`

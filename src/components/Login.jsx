@@ -1,5 +1,6 @@
-import styled from "styled-components";
 import background from "../assets/img/login/background.svg";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 export default function SignUp() {
@@ -26,10 +27,18 @@ export default function SignUp() {
   return (
     <Container>
       <Wrapper>
+        <Link to="/">
+          <h3>LOGO</h3>
+        </Link>
+
         <Route>
-          <span><a href = "login">로그인</a></span>
+          <span>
+            <a href="login">로그인</a>
+          </span>
           <span>|</span>
-          <span><a href="signup">회원가입</a></span>
+          <span>
+            <a href="signup">회원가입</a>
+          </span>
         </Route>
 
         <Section>
@@ -60,8 +69,11 @@ const Container = styled.div`
   justify-content: center;
   background: #91a7ff;
   background-image: url(${background});
-  a{
-    text-decoration : none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  a {
+    text-decoration: none;
   }
 `;
 
@@ -75,6 +87,12 @@ const Wrapper = styled.div`
   justify-content: center;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   background: #fff;
+  h3 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin: 0 0;
+  }
 `;
 
 const Route = styled.div`

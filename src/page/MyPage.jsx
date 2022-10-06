@@ -1,14 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { modalState } from "..";
+import { CateState, modalState } from "..";
 import Modal from "../components/Modal";
 import { BiMenu } from "react-icons/bi";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 export default function MyPage() {
   document.body.style.overflow = "unset";
+  const [cate, setCate] = useRecoilState(CateState);
   const [modal, setModal] = useRecoilState(modalState);
-  console.log(modal);
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    console.log(cate)
+    axios
+      .get(
+        `http://192.168.72.124:8080/getmyboard?id=${localStorage.getItem(
+          "id"
+        )}&categorie=${cate}`
+      )
+      .then((res) => {
+        console.log(res.data["data"]);
+        setPosts(res.data["data"]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  const contents = posts.map((data) => (
+    <>
+      <div className="title">
+        <span>{data["title"]}</span>
+        <BiMenu className="menu" />
+      </div>
+      <div className="content">
+        <p>{data["content"]}</p>
+      </div>
+    </>
+  ));
   return (
     <StyledMyPage>
       <AddBoard onClick={() => setModal(true)}>
@@ -16,17 +46,7 @@ export default function MyPage() {
           <p className="addp">User님의 주식 투자는 어떤가요? </p>
         </div>
       </AddBoard>
-      <ContentList>
-        <div className="title">
-          <span>제목입니다</span>
-          <BiMenu className="menu" />
-        </div>
-        <div className="content">
-          <p>
-            wadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaawadwadawdwadwaaaaaaaaaaaaaaaaaaaav
-          </p>
-        </div>
-      </ContentList>
+      <ContentList>{contents}</ContentList>
       {modal === true ? <Modal /> : null}
     </StyledMyPage>
   );

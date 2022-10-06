@@ -2,10 +2,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { modalState } from "..";
+import { CateState, modalState } from "..";
 
 export default function Modal() {
   const [modal, setModal] = useRecoilState(modalState);
+  const [cate, setCate] = useRecoilState(CateState);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   document.body.style.overflow = "hidden";
@@ -14,13 +15,16 @@ export default function Modal() {
     const form = {
       title: title,
       content: content,
-      id: 1234,
+      id: localStorage.getItem("id"),
+      date: "2022/05/12",
+      categorie: cate,
     };
-    console.log(form)
+    console.log(form);
     axios
-      .post("http://192.168.154.124:8080/addboard", form)
+      .post("http://192.168.72.124:8080/addboard", form)
       .then((res) => {
         console.log(res);
+        document.location.href = "/board"
       })
       .catch((err) => {
         console.log(err);
@@ -62,10 +66,11 @@ export default function Modal() {
   );
 }
 const StyledModal = styled.div`
+  box-shadow: 3px 3px 1000px 1000px rgba(0, 0, 0, 0.5);
   top: 190px;
   position: absolute;
   z-index: 2;
-  background-color : #ede4cc;
+  background-color: #ede4cc;
 `;
 
 const Popup = styled.div`

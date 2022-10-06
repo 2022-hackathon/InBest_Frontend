@@ -159,6 +159,7 @@ const List = styled.div`
   border: black 1px solid;
 `;
 const ListContainer = styled.div`
+  bottom: 30px;
   display: flex;
   justify-content: center;
   div {

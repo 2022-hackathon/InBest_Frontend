@@ -10,9 +10,9 @@ export default function SignUpPage() {
   });
 
   const onAxios = async () => {
-    console.log("onAxiossdfjlksjkls");
+    console.log(account);
     await axios
-      .post("http://192.168.154.124:8080/signup", account)
+      .post("http://192.168.72.124:8080/signup", account)
       .then((res) => {
         console.log(res.data);
       })

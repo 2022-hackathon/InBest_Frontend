@@ -1,24 +1,36 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <Container>
       <Wrapper>
-        <h2>
-          <a href="/">LOGO</a>
-        </h2>
+        <Link to="/">
+          <h2>LOGO</h2>
+        </Link>
         <Frame>
-          <p>
-            <a href="/">투자 정보 페이지</a>
-          </p>
-          <p>
-            <a href="/mypage">마이 페이지</a>
-          </p>
-          <p>
-            <a href="/game">게임하러가기</a>
-          </p>
+          <Link to="/">
+            <p>투자 정보 페이지</p>
+          </Link>
+          <Link to="/mypage">
+            <p>마이 페이지</p>
+          </Link>
+          <Link to="/game">
+            <p>게임하러가기</p>
+          </Link>
         </Frame>
-        <button>로그아웃</button>
+
+        {localStorage.getItem("token") === null ? (
+          <>
+            <Link to="/login">
+              <button>로그인</button>
+            </Link>
+            <Link to="signup">
+              <button>회원가입</button>
+            </Link>
+          </> 
+        ) : (
+          <button onClick={() => {localStorage.removeItem("token"); document.location.href = "/"}}>로그아웃</button>
+        )}
       </Wrapper>
     </Container>
   );

@@ -7,6 +7,7 @@ import Header from "./components/common/Header";
 import Game from "./page/Game";
 import IntroPage from "./page/IntroPage";
 import Main from "./components/Main";
+import ApChart from "./components/ApChart";
 export default function App() {
   return (
     <>
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/board" element={<MyPage />} />
         <Route path="/game" element={<Game />}></Route>
+        <Route path="/chart" element={<ApChart />}></Route>
       </Routes>
     </>
   );

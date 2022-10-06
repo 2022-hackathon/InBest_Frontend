@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import talk from "../assets/img/intro/talk.svg";
-
+import { Link } from "react-router-dom";
 export default function IntroPage() {
   return (
     <Container>
       <Header>
         <h2>LOGO</h2>
         <RouteBoutton>
-          <button>로그인</button>
-          <button>회원가입</button>
+          <Link to = "/login"><button>로그인</button></Link>
+          <Link to = "/signup"><button>회원가입</button></Link>
         </RouteBoutton>
       </Header>
       <Section>

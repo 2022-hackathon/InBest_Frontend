@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Header from "./common/Header";
 import data from "../assets/img/main/data.png";
+import ApChart from "./ApChart";
 
 export default function Main() {
   return (
@@ -16,10 +17,12 @@ export default function Main() {
         <Popular>
           <Title>
             <h3>현재 인기 종목</h3>
-            <p>(거래량 순위)</p>
+            <p>(등락률 비교)</p>
             <button>갱신</button>
           </Title>
-          <Div></Div>
+          <Div>
+            <ApChart />
+          </Div>
         </Popular>
         <Large>
           <Title>
@@ -27,7 +30,9 @@ export default function Main() {
             <p>(거래량 순위)</p>
             <button>갱신</button>
           </Title>
-          <Div></Div>
+          <Div>
+            <ApChart />
+          </Div>
         </Large>
         <Chart>
           <Title>

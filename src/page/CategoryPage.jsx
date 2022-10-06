@@ -74,15 +74,12 @@ const Category = styled.div`
   border-radius: 10px;
   height: 200px;
   margin-top: 50px;
-  .title {
-    border-bottom: 1px solid;
-    height: 30px;
-  }
-  .content {
-    text-align: left;
-    padding-left: 20px;
-    word-break: break-all;
-  }
+  display : flex;
+  flex-direction : column;
+  align-items : center;
+  justify-content :center;
+  font-size : 30px;
+  font-weight : bold;
   .icon {
     position: absolute;
     margin-left: 100px;

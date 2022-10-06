@@ -1,5 +1,5 @@
 import { Unity, useUnityContext } from "react-unity-webgl";
-
+import styled from "styled-components";
 function Game() {
   const { unityProvider } = useUnityContext({
     loaderUrl: "Build/WebBuild.loader.js",
@@ -8,16 +8,22 @@ function Game() {
     codeUrl: "Build/WebBuild.wasm",
   });
   return (
-    <Unity
-      style={{
-        width: "100%",
-        height: "auto",
-        justifySelf: "center",
-        alignSelf: "center",
-      }}
-      unityProvider={unityProvider}
-    />
+    <UnityCon>
+      <Unity
+        style={{
+          width: "1296px",
+          height: "680px",
+          justifySelf: "center",
+          alignSelf: "center",
+        }}
+        unityProvider={unityProvider}
+      />
+    </UnityCon>
   );
 }
-
+const UnityCon = styled.div`
+margin-top : 70px;
+  display: flex;
+  justify-content: center;
+`;
 export default Game;

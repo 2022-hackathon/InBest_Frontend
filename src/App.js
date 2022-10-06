@@ -6,7 +6,13 @@ import SignUpPage from "./page/SignUpPage";
 import CategoryPage from "./page/CategoryPage";
 import MainPage from "./page/MainPage";
 import Game from "./page/Game";
+<<<<<<< HEAD
 import Header from "./components/common/Header";
+=======
+import IntroPage from "./page/IntroPage";
+import Main from "./components/Main";
+import ApChart from "./components/ApChart";
+>>>>>>> main
 export default function App() {
   return (
     <>
@@ -28,6 +34,7 @@ export default function App() {
         <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/board" element={<MyPage />} />
         <Route path="/game" element={<Game />}></Route>
+        <Route path="/chart" element={<ApChart />}></Route>
       </Routes>
     </>
   );

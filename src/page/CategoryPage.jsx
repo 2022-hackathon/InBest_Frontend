@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 export default function CategoryPage() {
   const navi = useNavigate();
   const [cates, setCates] = useState([]);
-  const [cate,setCate] = useRecoilState(CateState)
   useEffect(() => {
     console.log(localStorage.getItem("id"));
     axios
@@ -26,7 +25,10 @@ export default function CategoryPage() {
   }, []);
   const category = cates.map((data) => (
     <Category
-      onClick={() => {navi("/board");  setCate(data['categorie'])}}
+      onClick={() => {
+        navi("/board");
+        localStorage.setItem("cate", data["categorie"]);
+      }}
     >
       <span className="title">{data["categorie"]}</span>
       {/* <p className="content">{}</p> */}

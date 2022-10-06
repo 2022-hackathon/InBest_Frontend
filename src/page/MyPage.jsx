@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { CateState, modalState } from "..";
+import { modalState } from "..";
 import Modal from "../components/Modal";
 import { BiMenu } from "react-icons/bi";
 import { useLocation } from "react-router-dom";
@@ -9,16 +9,15 @@ import axios from "axios";
 
 export default function MyPage() {
   document.body.style.overflow = "unset";
-  const [cate, setCate] = useRecoilState(CateState);
   const [modal, setModal] = useRecoilState(modalState);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    console.log(cate)
+    console.log("게시글 가져오기");
     axios
       .get(
         `http://192.168.72.124:8080/getmyboard?id=${localStorage.getItem(
           "id"
-        )}&categorie=${cate}`
+        )}&categorie=${localStorage.getItem("cate")}`
       )
       .then((res) => {
         console.log(res.data["data"]);
@@ -30,24 +29,27 @@ export default function MyPage() {
   }, []);
   const contents = posts.map((data) => (
     <>
-      <div className="title">
-        <span>{data["title"]}</span>
+      <Title>
+        <h3>{data["title"]}</h3>
         <BiMenu className="menu" />
-      </div>
-      <div className="content">
-        <p>{data["content"]}</p>
-      </div>
+      </Title>
+      <p>{data["content"]}</p>
     </>
   ));
   return (
     <StyledMyPage>
-      <AddBoard onClick={() => setModal(true)}>
-        <div className="adddiv">
-          <p className="addp">User님의 주식 투자는 어떤가요? </p>
-        </div>
-      </AddBoard>
-      <ContentList>{contents}</ContentList>
-      {modal === true ? <Modal /> : null}
+      <Wrapper>
+        <Write>
+          <Frame>
+            <input
+              onClick={() => setModal(true)}
+              placeholder="User님의 주식 투자는 어떤가요?"
+            ></input>
+          </Frame>
+        </Write>
+        <ContentList>{contents}</ContentList>
+        {modal === true ? <Modal /> : null}
+      </Wrapper>
     </StyledMyPage>
   );
 }

@@ -19,10 +19,6 @@ export const CateModalState = atom({
   key: "cateModal",
   default: false,
 });
-export const CateState = atom({
-  key : "cate",
-  default : ""
-})
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>

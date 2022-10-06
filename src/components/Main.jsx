@@ -2,7 +2,19 @@ import styled from "styled-components";
 import Header from "./common/Header";
 import data from "../assets/img/main/data.png";
 
-export default function Main() {
+export default function Main({ stock }) {
+  const items = stock.map((arr) => (
+    <Content>
+      <p className="ppp">{arr.name}</p>
+      <Elements>
+        <p>{arr.current}</p>
+        <p>{arr.yesterday}</p>
+        <p>{arr.fluctuation}</p>
+        <p>{arr.tranding}</p>
+        <p>{arr.cap}</p>
+      </Elements>
+    </Content>
+  ));
   return (
     <Container>
       <Header />
@@ -35,6 +47,19 @@ export default function Main() {
             <p>(거래량 순위)</p>
             <button>갱신</button>
           </Title>
+          <Table>
+            <Topic>
+              <p className="ppp">종목명</p>
+              <div>
+                <p>현재가</p>
+                <p>전일비</p>
+                <p>등락률</p>
+                <p>거래량</p>
+                <p>시가총액</p>
+              </div>
+            </Topic>
+            <Wrapper>{items}</Wrapper>
+          </Table>
         </Chart>
       </Section>
     </Container>
@@ -133,4 +158,64 @@ const Large = styled.div`
 const Chart = styled.div`
   width: 80%;
   margin-top: 100px;
+`;
+
+const Table = styled.div`
+  .ppp {
+    padding-left: 50px;
+  }
+`;
+
+const Topic = styled.div`
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  border-top: solid 1px #000;
+  border-bottom: solid 1px #000;
+  color: #4263eb;
+  background: #dbe4ff;
+  div {
+    width: 66%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      width: 200px;
+      text-align: center;
+    }
+  }
+`;
+
+const Wrapper = styled.div``;
+
+const Content = styled.div`
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: solid 1px #000;
+  color: #4263eb;
+  background: #fff;
+  p {
+    font-size: 12px;
+    color: #000;
+  }
+`;
+
+const Elements = styled.div`
+  width: 66%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    width: 200px;
+    text-align: center;
+  }
 `;

@@ -1,21 +1,26 @@
 import { Route, Routes } from "react-router-dom";
 import MyPage from "./page/MyPage";
-import SignUpPage from "./page/SignUpPage";
-import LoginPage from "./page/LoginPage";
-import CategoryPage from "./page/CategoryPage";
-import Header from "./components/common/Header";
-import Game from "./page/Game";
 import IntroPage from "./page/IntroPage";
-import Main from "./components/Main";
+import LoginPage from "./page/LoginPage";
+import SignUpPage from "./page/SignUpPage";
+import CategoryPage from "./page/CategoryPage";
+import MainPage from "./page/MainPage";
+import Game from "./page/Game";
+import Header from "./components/common/Header";
 export default function App() {
   return (
     <>
+      {/* <MainPage /> */}
       {localStorage.getItem("token") === null ? null : <Header />}
       <Routes>
         <Route
           path="/"
           element={
-            localStorage.getItem("token") === null ? <IntroPage /> : <Main />
+            localStorage.getItem("token") === null ? (
+              <IntroPage />
+            ) : (
+              <MainPage />
+            )
           }
         ></Route>
         <Route path="/mypage" element={<CategoryPage />}></Route>

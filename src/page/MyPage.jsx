@@ -51,60 +51,70 @@ export default function MyPage() {
     </StyledMyPage>
   );
 }
+
 const StyledMyPage = styled.div`
-  margin-top: 120px;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #f7f9ff;
 `;
-const AddBoard = styled.div`
-  width: 800px;
+const Wrapper = styled.div`
+  margin-top: 100px;
+`;
+const Write = styled.div`
+  width: 700px;
   height: 170px;
   border-radius: 10px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  box-shadow: 1px 1px 2px 2px #979797;
-  .addp {
-    width: 700px;
-    margin-top: 20px;
-    border-radius: 40px;
-    height: 50px;
-    line-height: 50px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  background: #fff;
+`;
+const Frame = styled.div`
+  width: 80%;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #000;
+  input {
+    width: 100%;
+    height: 38px;
     padding-left: 20px;
-    border: solid 1px;
-    background-color: #ebebeb;
-  }
-  .adddiv {
-    height: 90px;
-    border-bottom: 1px solid;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    background: #ebebeb;
   }
 `;
 const ContentList = styled.div`
-  margin-top: 50px;
-  box-shadow: 1px 1px 2px 2px #979797;
+  width: 700px;
+  height: 450px;
+  margin: 40px 0 60px 0;
   border-radius: 10px;
-  width: 800px;
-  height: auto;
-  .title {
-    width: 100%;
-    height: 60px;
-    font-weight: bold;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  background: #fff;
+  p {
+    margin: 16px 0 0;
+    width: 80%;
   }
-  .title span {
-    margin-left: 30px;
-  }
-  .menu {
-    margin-left: 750px;
-    position: absolute;
-  }
-  .content p {
-    width: 750px;
-    word-break: break-all;
-    margin-left: 30px;
-    font-size: 18px;
+`;
+const Title = styled.div`
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  h3 {
+    font-size: 28px;
   }
 `;

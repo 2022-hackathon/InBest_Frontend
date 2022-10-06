@@ -56,7 +56,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   a {
     text-decoration: none;
-    color: #4263eb;
+    color: #fff;
   }
   h2 {
     color: #fff;

@@ -33,7 +33,7 @@ export default function Modal() {
   return (
     <StyledModal>
       <Popup>
-        <div className="head">
+        <Head>
           <p>게시물 작성</p>
           <button
             onClick={() => {
@@ -43,9 +43,9 @@ export default function Modal() {
           >
             X
           </button>
-        </div>
-        <div className="body">
-          <form onSubmit={onSub}>
+        </Head>
+        <Section>
+          <Content onSubmit={onSub}>
             <input
               type="text"
               placeholder="제목을 입력해주세요!"
@@ -58,9 +58,9 @@ export default function Modal() {
               placeholder="내용을 입력해주세요"
               onChange={(e) => setContent(e.target.value)}
             ></textarea>
-            <input type="submit" value="글쓰기" className="sub"></input>
-          </form>
-        </div>
+            <button type="submit">글쓰기</button>
+          </Content>
+        </Section>
       </Popup>
     </StyledModal>
   );
@@ -78,61 +78,12 @@ const Popup = styled.div`
   height: 450px;
   box-shadow: 1px 1px 2px 2px #979797;
   border-radius: 20px;
-  .head {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 2px #979797;
-  }
-  .head button {
-    margin-left: 600px;
-    border-radius: 99999px;
-    width: 40px;
-    height: 40px;
-    border: none;
-    background-color: #bac8ff;
-    color: #4263eb;
-  }
+  background: #fff;
+
   form {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-  }
-  .head p {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    position: absolute;
-  }
-  .body {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .body .title {
-    padding-left: 10px;
-    border-radius: 10px;
-    border: 1px solid;
-    margin-top: 30px;
-    width: 600px;
-    height: 40px;
-  }
-  textarea {
-    padding-top: 20px;
-    padding-left: 20px;
-    margin-top: 30px;
-    border-radius: 10px;
-    border: 1px solid;
-    width: 590px;
-  }
-  .sub {
-    margin-top: 25px;
-    width: 200px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid;
   }
 `;

@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import Main from "./components/Main";
 import MyPage from "./page/MyPage";
 import SignUpPage from "./page/SignUpPage";
 import LoginPage from "./page/LoginPage";
@@ -7,12 +6,18 @@ import CategoryPage from "./page/CategoryPage";
 import Header from "./components/common/Header";
 import Game from "./page/Game";
 import IntroPage from "./page/IntroPage";
+import Main from "./components/Main";
 export default function App() {
   return (
     <>
-      {localStorage.getItem("token") === null ? null : <Header/>}
+      {localStorage.getItem("token") === null ? null : <Header />}
       <Routes>
-        <Route path="/" element={<IntroPage />}></Route>
+        <Route
+          path="/"
+          element={
+            localStorage.getItem("token") === null ? <IntroPage /> : <Main />
+          }
+        ></Route>
         <Route path="/mypage" element={<CategoryPage />}></Route>
         <Route path="/signup" element={<SignUpPage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>

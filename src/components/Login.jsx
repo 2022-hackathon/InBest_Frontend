@@ -1,30 +1,51 @@
 import styled from "styled-components";
 import background from "../assets/img/login/background.svg";
-
+import { useState } from "react";
+import axios from "axios";
 export default function SignUp() {
+  const [id, setId] = useState("");
+  const [pwd, setPwd] = useState("");
+  function onSub(e) {
+    e.preventDefault();
+    const form = {
+      id: id,
+      pw: pwd,
+    };
+    axios
+      .post("http://192.168.72.124:8080/login", form)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data["token"]);
+        localStorage.setItem("id", res.data["id"]);
+        document.location.href = "/";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   return (
     <Container>
       <Wrapper>
         <Route>
-          <span>로그인</span>
+          <span><a href = "login">로그인</a></span>
           <span>|</span>
-          <span>회원가입</span>
+          <span><a href="signup">회원가입</a></span>
         </Route>
 
         <Section>
           <h2>LOGO</h2>
           <h2>로그인</h2>
-          <InputBox>
+          <InputBox onSubmit={onSub}>
             <Input>
               <p>아이디</p>
-              <input type="text" />
+              <input type="text" onChange={(e) => setId(e.target.value)} />
             </Input>
             <Input>
               <p>비밀번호</p>
-              <input type="text" />
+              <input type="password" onChange={(e) => setPwd(e.target.value)} />
             </Input>
           </InputBox>
-          <button>로그인</button>
+          <button onClick={onSub}>로그인</button>
         </Section>
       </Wrapper>
     </Container>
@@ -39,6 +60,9 @@ const Container = styled.div`
   justify-content: center;
   background: #91a7ff;
   background-image: url(${background});
+  a{
+    text-decoration : none;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -92,7 +116,7 @@ const Section = styled.div`
   }
 `;
 
-const InputBox = styled.div`
+const InputBox = styled.form`
   width: 270px;
 `;
 

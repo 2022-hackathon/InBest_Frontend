@@ -16,7 +16,7 @@ export default function Modal() {
       content: content,
       id: 1234,
     };
-    console.log(form)
+    console.log(form);
     axios
       .post("http://192.168.154.124:8080/addboard", form)
       .then((res) => {
@@ -29,7 +29,7 @@ export default function Modal() {
   return (
     <StyledModal>
       <Popup>
-        <div className="head">
+        <Head>
           <p>게시물 작성</p>
           <button
             onClick={() => {
@@ -39,9 +39,9 @@ export default function Modal() {
           >
             X
           </button>
-        </div>
-        <div className="body">
-          <form onSubmit={onSub}>
+        </Head>
+        <Section>
+          <Content onSubmit={onSub}>
             <input
               type="text"
               placeholder="제목을 입력해주세요!"
@@ -54,18 +54,91 @@ export default function Modal() {
               placeholder="내용을 입력해주세요"
               onChange={(e) => setContent(e.target.value)}
             ></textarea>
-            <input type="submit" value="글쓰기" className="sub"></input>
-          </form>
-        </div>
+            <button type="submit">글쓰기</button>
+          </Content>
+        </Section>
       </Popup>
     </StyledModal>
   );
 }
 const StyledModal = styled.div`
-  top: 190px;
-  position: absolute;
   z-index: 2;
-  background-color : #ede4cc;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #20202060;
+`;
+
+const Head = styled.div`
+  position: relative;
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  button {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #bac8ff;
+    color: #4263eb;
+    cursor: pointer;
+  }
+`;
+
+const Section = styled.div``;
+
+const Content = styled.div`
+  input {
+    width: 600px;
+    height: 40px;
+    margin-top: 30px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #979797;
+    outline: none;
+  }
+
+  textarea {
+    width: 590px;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 10px;
+    border: 1px solid #979797;
+    outline: none;
+    resize: none;
+  }
+
+  button {
+    margin-top: 25px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background: #4263eb;
+    cursor: pointer;
+  }
 `;
 
 const Popup = styled.div`
@@ -73,61 +146,12 @@ const Popup = styled.div`
   height: 450px;
   box-shadow: 1px 1px 2px 2px #979797;
   border-radius: 20px;
-  .head {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 2px #979797;
-  }
-  .head button {
-    margin-left: 600px;
-    border-radius: 99999px;
-    width: 40px;
-    height: 40px;
-    border: none;
-    background-color: #bac8ff;
-    color: #4263eb;
-  }
+  background: #fff;
+
   form {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-  }
-  .head p {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    position: absolute;
-  }
-  .body {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .body .title {
-    padding-left: 10px;
-    border-radius: 10px;
-    border: 1px solid;
-    margin-top: 30px;
-    width: 600px;
-    height: 40px;
-  }
-  textarea {
-    padding-top: 20px;
-    padding-left: 20px;
-    margin-top: 30px;
-    border-radius: 10px;
-    border: 1px solid;
-    width: 590px;
-  }
-  .sub {
-    margin-top: 25px;
-    width: 200px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid;
   }
 `;

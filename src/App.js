@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/common/Header";
-import Main from "./components/Main";
-import Modal from "./components/Modal";
+import Main from "./components/Main"
 import MyPage from "./page/MyPage";
 import SignUpPage from "./page/SignUpPage";
 export default function App() {
@@ -11,7 +10,6 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/mypage" element={<MyPage />}></Route>
-        <Route path="/test" element={<Modal />}></Route>
         <Route path="/signup" element={<SignUpPage />}></Route>
       </Routes>
     </>

@@ -4,11 +4,19 @@ export default function Header() {
   return (
     <Container>
       <Wrapper>
-        <h2>LOGO</h2>
+        <h2>
+          <a href="/">LOGO</a>
+        </h2>
         <Frame>
-          <p>투자 정보 페이지</p>
-          <p>마이 페이지</p>
-          <p>게임하러가기</p>
+          <p>
+            <a href="/">투자 정보 페이지</a>
+          </p>
+          <p>
+            <a href="/mypage">마이 페이지</a>
+          </p>
+          <p>
+            <a href="/game">게임하러가기</a>
+          </p>
         </Frame>
         <button>로그아웃</button>
       </Wrapper>
@@ -18,6 +26,7 @@ export default function Header() {
 
 const Container = styled.div`
   z-index: 100;
+  top: 0px;
   position: fixed;
   width: 100%;
   height: 70px;
@@ -33,7 +42,10 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  a {
+    text-decoration: none;
+    color: #4263eb;
+  }
   h2 {
     color: #fff;
     cursor: pointer;

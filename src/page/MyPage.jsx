@@ -32,7 +32,7 @@ export default function MyPage() {
   );
 }
 const StyledMyPage = styled.div`
-  margin-top: 20px;
+  margin-top: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;

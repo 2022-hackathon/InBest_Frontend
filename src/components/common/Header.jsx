@@ -19,18 +19,14 @@ export default function Header() {
           </Link>
         </Frame>
 
-        {localStorage.getItem("token") === null ? (
-          <>
-            <Link to="/login">
-              <button>로그인</button>
-            </Link>
-            <Link to="signup">
-              <button>회원가입</button>
-            </Link>
-          </> 
-        ) : (
-          <button onClick={() => {localStorage.removeItem("token"); document.location.href = "/"}}>로그아웃</button>
-        )}
+        <button
+          onClick={() => {
+            localStorage.removeItem("token");
+            document.location.href = "/";
+          }}
+        >
+          로그아웃
+        </button>
       </Wrapper>
     </Container>
   );

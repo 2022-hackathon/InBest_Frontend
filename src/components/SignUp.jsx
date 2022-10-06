@@ -57,7 +57,7 @@ export default function SignUp({ account, onChangeAccount, onAxios }) {
 }
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -68,7 +68,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   position: relative;
-  width: 80vw;
+  width: 80%;
   height: 80vh;
   border-radius: 10px;
   display: flex;

@@ -60,14 +60,14 @@ export default function Main() {
 }
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100%;
   background: #f6f9ff;
 `;
 
 const Banner = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 60vh;
   display: flex;
   background: #d4dcff;
@@ -100,7 +100,7 @@ const Section = styled.div`
 `;
 
 const Title = styled.div`
-  width: 80vw;
+  width: 80%;
   margin-top: 100px;
   text-align: start;
   display: flex;

@@ -28,23 +28,22 @@ export default function MyPage() {
       });
   }, []);
   const contents = posts.map((data) => (
-    <>
+    <Container>
       <Title>
         <h3>{data["title"]}</h3>
         <BiMenu className="menu" />
       </Title>
       <p>{data["content"]}</p>
-    </>
+    </Container>
   ));
   return (
     <StyledMyPage>
       <Wrapper>
         <Write>
           <Frame>
-            <input
-              onClick={() => setModal(true)}
-              placeholder="User님의 주식 투자는 어떤가요?"
-            ></input>
+            <button onClick={() => setModal(true)}>
+              User님의 주식 투자는 어떤가요?
+            </button>
           </Frame>
         </Write>
         <ContentList>{contents}</ContentList>
@@ -83,7 +82,7 @@ const Frame = styled.div`
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #000;
-  input {
+  button {
     width: 100%;
     height: 38px;
     padding-left: 20px;
@@ -92,14 +91,31 @@ const Frame = styled.div`
     border-radius: 20px;
     outline: none;
     font-size: 14px;
+    text-align: start;
     background: #ebebeb;
   }
 `;
 const ContentList = styled.div`
   width: 700px;
-  height: 450px;
+  height: 100%;
   margin: 40px 0 60px 0;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #f7f9ff;
+  p {
+    margin: 16px 0 0;
+    width: 80%;
+  }
+`;
+
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  margin-bottom: 70px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,10 +123,12 @@ const ContentList = styled.div`
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   background: #fff;
   p {
-    margin: 16px 0 0;
     width: 80%;
+    height: 100%;
+    padding: 0 0 36px 0;
   }
 `;
+
 const Title = styled.div`
   width: 80%;
   display: flex;

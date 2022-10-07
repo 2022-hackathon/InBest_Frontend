@@ -15,6 +15,7 @@ export default function SignUpPage() {
       .post("http://192.168.72.124:8080/signup", account)
       .then((res) => {
         console.log(res.data);
+        document.location.href = "/";
       })
       .catch((error) => {
         throw new Error(error);

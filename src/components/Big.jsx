@@ -2,7 +2,7 @@ import React, { useEffect, useState, useLayoutEffect } from "react";
 import ApexCharts from "react-apexcharts";
 import axios from "axios";
 import styled from "styled-components";
-export default function ApChart() {
+export default function Big() {
   const [rank, setRank] = useState([]);
   useLayoutEffect(() => {
     console.log("loading..");
@@ -17,19 +17,15 @@ export default function ApChart() {
       });
   }, []);
   rank.length = 25;
-  const chartColor = rank.map((data) =>
-    data["fluctuation"].charAt(0) === "-" ? "#048de3" : "#ff0000"
-  );
   const graph = rank.map((data) => ({
     x: data["name"],
-    y: data["fluctuation"],
+    y: data["tranding"],
   }));
   console.log(graph);
-  console.log(chartColor);
   return (
-    <ChartCon>
+    <ChartCont>
       <ApexCharts
-        className="chart"
+        className="charts"
         width={1200}
         height={400}
         type="bar"
@@ -41,12 +37,11 @@ export default function ApChart() {
         options={{
           chart: { type: "bar" },
         }}
-        fill={{ colors: chartColor }}
       ></ApexCharts>
-    </ChartCon>
+    </ChartCont>
   );
 }
-const ChartCon = styled.div`
+const ChartCont = styled.div`
   width: 100%;
   height: 100%;
   display: flex;

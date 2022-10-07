@@ -30,67 +30,100 @@ export default function CategoryPage() {
         localStorage.setItem("cate", data["categorie"]);
       }}
     >
-      <span className="title">{data["categorie"]}</span>
-      {/* <p className="content">{}</p> */}
+      <Div>
+        <span className="title">{data["categorie"]}</span>
+      </Div>
+      <p>바로가기</p>
     </Category>
   ));
   const [modal, setModal] = useRecoilState(CateModalState);
   return (
-    <Wrapper>
-      <BtnContainer>
-        <button onClick={() => setModal(true)}>
-          카테고리 추가 {<AiOutlinePlus />}
-        </button>
-      </BtnContainer>
-      <CategoryList>{category}</CategoryList>
-      {modal === true ? <CategoryModal /> : null}
-    </Wrapper>
+    <Container>
+      <Wrapper>
+        <BtnContainer>
+          <button onClick={() => setModal(true)}>카테고리 추가</button>
+        </BtnContainer>
+        <CategoryList>{category}</CategoryList>
+        {modal === true ? <CategoryModal /> : null}
+      </Wrapper>
+    </Container>
   );
 }
-const BtnContainer = styled.div`
+
+const Container = styled.div`
   width: 100%;
-  height: auto;
-  button {
-    float: right;
-    margin-right: 135px;
-    width: 150px;
-    height: 50px;
-    border-radius: 10px;
-    border: 1px solid;
-  }
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
+
 const Wrapper = styled.div`
-  margin-top: 100px;
+  width: 60%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 `;
 
+const BtnContainer = styled.div`
+  width: 100%;
+  height: auto;
+  button {
+    position: absolute;
+    top: 110px;
+    right: 140px;
+    width: 150px;
+    height: 46px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    background: #4263eb;
+    cursor: pointer;
+  }
+`;
+
+const CategoryList = styled.div`
+  width: 90%;
+  height: 100%;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+`;
+
 const Category = styled.div`
-  border: 1px solid;
-  text-align: center;
-  width: 400px;
-  border-radius: 10px;
+  width: 90%;
   height: 200px;
   margin-top: 50px;
-  display : flex;
-  flex-direction : column;
-  align-items : center;
-  justify-content :center;
-  font-size : 30px;
-  font-weight : bold;
+  
   .icon {
     position: absolute;
     margin-left: 100px;
     width: 25px;
     height: 25px;
   }
+  p {
+    margin: 17px 0 0 0;
+    text-align: start;
+    font-size: 14px;
+    font-weight: 600;
+  }
 `;
-const CategoryList = styled.div`
-  margin-top: 50px;
-  height: 100%;
-  width: 90%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+
+const Div = styled.div`
+  width: 100%;
+  height: 76%;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #bac8ff;
+  span {
+    font-size: 28px;
+    font-weight: 800;
+    color: #414760;
+  }
 `;

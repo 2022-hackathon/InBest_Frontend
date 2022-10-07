@@ -47,13 +47,9 @@ export default function CategoryModal() {
               className="title"
               onChange={(e) => setTitle(e.target.value)}
             />
-            <textarea
-              rows="10"
-              cols="25"
-              placeholder="설명 입력"
-              onChange={(e) => setContent(e.target.value)}
-            ></textarea>
-            <input type="submit" value="추가" className="sub"></input>
+            <button type="submit" className="sub">
+              추가
+            </button>
           </form>
         </div>
       </Popup>
@@ -65,13 +61,15 @@ const StyledModal = styled.div`
   top: 190px;
   position: absolute;
   z-index: 2;
-  background-color: #ede4cc;
+  border-radius: 20px;
+  background: #fff;
   box-shadow: 3px 3px 1000px 1000px rgba(0, 0, 0, 0.5);
 `;
 
 const Popup = styled.div`
-  width: 700px;
-  height: 450px;
+  position: relative;
+  width: 500px;
+  height: 350px;
   box-shadow: 1px 1px 2px 2px #979797;
   border-radius: 20px;
   .head {
@@ -83,13 +81,16 @@ const Popup = styled.div`
     box-shadow: 0px 2px #979797;
   }
   .head button {
-    margin-left: 600px;
+    position: absolute;
+    top: 14px;
+    right: 15px;
     border-radius: 99999px;
     width: 40px;
     height: 40px;
     border: none;
     background-color: #bac8ff;
     color: #4263eb;
+    cursor: pointer;
   }
   form {
     display: flex;
@@ -99,7 +100,7 @@ const Popup = styled.div`
   }
   .head p {
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     position: absolute;
   }
@@ -110,10 +111,11 @@ const Popup = styled.div`
   }
   .body .title {
     padding-left: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: 1px solid;
+    outline: none;
     margin-top: 30px;
-    width: 600px;
+    width: 390px;
     height: 40px;
   }
   textarea {
@@ -125,10 +127,15 @@ const Popup = styled.div`
     width: 590px;
   }
   .sub {
-    margin-top: 25px;
-    width: 200px;
+    margin-top: 100px;
+    width: 150px;
     height: 40px;
-    border-radius: 10px;
-    border: 1px solid;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    background: #4263eb;
+    cursor: pointer;
   }
 `;
